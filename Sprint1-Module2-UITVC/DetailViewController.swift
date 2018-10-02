@@ -2,17 +2,18 @@ import UIKit
 
 class DetailViewController: UIViewController {
     var indexPath: IndexPath? = nil
-    
-    
+   
     @IBOutlet weak var field: UITextField!
     
     @IBOutlet weak var textView: UITextView!
+    
+    @IBOutlet weak var done: UISwitch!
     
     
     @objc
     func addEntry() {
         if let text = field.text, !text.isEmpty {
-            let entry = Entry(title: text, note: textView.text)
+            let entry = Entry(title: text, note: textView.text, done: done.isOn)
             Model.shared.items.append(entry)
         }
         navigationController?.popViewController(animated: true)
@@ -26,7 +27,7 @@ class DetailViewController: UIViewController {
         }
         
         if let text = field.text, !text.isEmpty {
-            let entry = Entry(title: text, note: textView.text)
+            let entry = Entry(title: text, note: textView.text, done: done.isOn)
             Model.shared.items[indexPath.row] = entry
         }
         
@@ -40,6 +41,7 @@ class DetailViewController: UIViewController {
             let entry = Model.shared.items[indexPath.row]
             field.text = entry.title
             textView.text = entry.note
+            done.isOn = entry.done
         }
         
         let barButton = UIBarButtonItem(title: nil, style: .plain, target: self, action: nil)
