@@ -54,6 +54,17 @@ class TableViewController: UITableViewController {
         super.viewDidLoad()
     }
 
-
+    // Enable "magic" swipe-to-delete
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        // Only handle deletions
+        guard editingStyle == .delete else { return }
+        
+        // Update model then refresh view
+        
+        if (editingStyle == .delete){
+            Model.shared.items.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
 }
-

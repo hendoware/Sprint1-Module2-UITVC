@@ -87,6 +87,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Rut-u1-ZBT"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="field" destination="wqU-M3-dq3" id="g4a-lj-HHW"/>
                         <outlet property="textView" destination="ARb-xw-EtG" id="BXI-ln-ZSb"/>
